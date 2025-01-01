@@ -1,0 +1,289 @@
+body {
+    background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+    min-height: 100vh;
+    color: #fff;
+}
+
+.navbar-nature {
+    background-color: rgba(28, 56, 151, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+}
+
+.navbar-nature .navbar-brand,
+.navbar-nature .nav-link {
+    color: #fff;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    margin: 0 1rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+    color: #fff !important;
+}
+
+.dot {
+    color: #FFD700;
+    font-size: 1.5em;
+    position: relative;
+    top: -2px;
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-body {
+    color: #fff;
+}
+
+.bg-light {
+    background: rgba(28, 56, 151, 0.1) !important;
+}
+
+.bg-primary {
+    background: rgba(28, 56, 151, 0.2) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.text-primary {
+    color: #26d0ce !important;
+}
+
+.btn-light {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.carousel-inner {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.carousel-caption {
+    background: rgba(28, 56, 151, 0.4) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px !important;
+    border-radius: 0 !important;
+}
+
+.carousel-indicators {
+    margin-bottom: 2rem;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 6px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+/* Section Title Styling */
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: -30px auto 40px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.title-wrapper {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .display-5 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav-link {
+        margin: 0.5rem 0;
+    }
+    
+    .carousel-item img {
+        height: 400px;
+    }
+
+    .display-5 {
+        font-size: 2rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .display-5 {
+        font-size: 1.75rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin: -20px auto 30px;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .bi {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item img {
+        height: 250px;
+    }
+
+    .display-4 {
+        font-size: 1.75rem;
+    }
+
+    .lead {
+        font-size: 0.9rem;
+    }
+
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .display-5 {
+        font-size: 1.5rem;
+    }
+
+    h5.card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+        margin: -15px auto 25px;
+    }
+
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .mb-5 {
+        margin-bottom: 3rem !important;
+    }
+
+    .g-4 {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+}
+
+/* Fix for glass effect on mobile */
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .card,
+    .navbar-nature {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .card,
+    .navbar-nature {
+        background: rgba(28, 56, 151, 0.9) !important;
+    }
+}
