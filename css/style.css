@@ -1,13 +1,100 @@
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 body {
-    background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+    background: linear-gradient(-45deg, #1a2980, #26d0ce, #243B55, #20BF55);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     min-height: 100vh;
     color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 50%);
+    animation: moveLight 8s infinite;
+    filter: blur(60px);
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 60%);
+    animation: moveLight2 12s infinite;
+    filter: blur(80px);
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes moveLight {
+    0% {
+        transform: translate(-25%, -25%) scale(1);
+    }
+    25% {
+        transform: translate(25%, 25%) scale(1.2);
+    }
+    50% {
+        transform: translate(25%, -25%) scale(1);
+    }
+    75% {
+        transform: translate(-25%, 25%) scale(1.2);
+    }
+    100% {
+        transform: translate(-25%, -25%) scale(1);
+    }
+}
+
+@keyframes moveLight2 {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    33% {
+        transform: translate(-30%, -30%) scale(1.3);
+    }
+    66% {
+        transform: translate(-40%, -40%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 .navbar-nature {
-    background-color: rgba(28, 56, 151, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
     padding: 1rem 0;
 }
 
@@ -67,7 +154,14 @@ body {
     background: rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15) !important;
+    animation-play-state: paused;
 }
 
 .card-body {
@@ -75,30 +169,76 @@ body {
 }
 
 .bg-light {
-    background: rgba(28, 56, 151, 0.1) !important;
+    background: transparent !important;
 }
 
 .bg-primary {
-    background: rgba(28, 56, 151, 0.2) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: transparent !important;
 }
 
 .text-primary {
     color: #26d0ce !important;
 }
 
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    color: #26d0ce;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+section {
+    position: relative;
+    z-index: 1;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
 .btn-light {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .btn-light:hover {
     background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
     color: #fff;
+}
+
+.btn-primary {
+    background-color: #26d0ce;
+    border: none;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1a2980;
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
 }
 
 .carousel-item img {
@@ -219,6 +359,27 @@ body {
     .bi {
         font-size: 2rem !important;
     }
+    
+    .feature-icon-box {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .feature-icon-box i {
+        font-size: 24px;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -286,4 +447,497 @@ body {
     .navbar-nature {
         background: rgba(28, 56, 151, 0.9) !important;
     }
+}
+
+/* Animations and Hover Effects */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Accordion Styling */
+.accordion-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: none;
+    padding: 1.2rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+.accordion-body {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* Form Styling */
+.input-group-text {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.form-label {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Badge Styling */
+.badge {
+    font-weight: 500;
+    padding: 8px 16px;
+}
+
+/* Section Divider */
+.section-divider {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #1a2980, #26d0ce);
+    margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .feature-icon-box {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .feature-icon-box i {
+        font-size: 24px;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+}
+
+/* Services Section Cards */
+#services .card {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    overflow: hidden;
+    transform: skewX(-5deg);
+}
+
+#services .card-body {
+    transform: skewX(5deg);
+}
+
+#services .card:hover {
+    transform: skewX(-5deg) translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#services .feature-icon {
+    font-size: 3rem;
+    color: #26d0ce;
+    position: relative;
+    z-index: 1;
+}
+
+#services .feature-icon::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Why Us Section Cards */
+#why-us .card {
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+    padding-bottom: 2rem;
+}
+
+#why-us .card:hover {
+    clip-path: polygon(0 15%, 15% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#why-us .feature-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transform: rotate(45deg);
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#why-us .feature-icon i {
+    transform: rotate(-45deg);
+    font-size: 2rem;
+    background: linear-gradient(45deg, #1a2980, #26d0ce);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Reviews Section Cards */
+#reviews .card {
+    border-radius: 30px 0 30px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#reviews .card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 120px;
+    font-family: Georgia, serif;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+}
+
+#reviews .card:hover {
+    border-radius: 0 30px 0 30px;
+}
+
+#reviews .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    margin-right: 15px;
+    transform: rotate(-5deg);
+}
+
+/* Contact Section Cards */
+#contact .card {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+#contact .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, 
+                rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, 
+                rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1));
+    background-size: 20px 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#contact .card:hover::before {
+    opacity: 1;
+}
+
+/* Responsive Mobile Styles */
+@media (max-width: 768px) {
+    #services .card {
+        transform: none;
+        margin-bottom: 1.5rem;
+    }
+    
+    #services .card-body {
+        transform: none;
+    }
+    
+    #services .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    #why-us .card {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        margin-bottom: 1.5rem;
+    }
+    
+    #why-us .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    #reviews .card {
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+    }
+    
+    #reviews .card:hover {
+        border-radius: 20px;
+    }
+    
+    #contact .card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Tambahan animasi hover untuk semua card */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Input fields styling */
+.form-control {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #26d0ce;
+    box-shadow: 0 0 0 0.2rem rgba(38, 208, 206, 0.25);
+    color: white;
+}
+
+/* Animated Background */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: linear-gradient(45deg, #1a2980, #26d0ce);
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation: moveParticle1 8s linear infinite;
+}
+
+.particle:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation: moveParticle2 12s linear infinite;
+}
+
+.particle:nth-child(3) {
+    top: 40%;
+    left: 40%;
+    animation: moveParticle3 10s linear infinite;
+}
+
+.particle:nth-child(4) {
+    top: 80%;
+    left: 10%;
+    animation: moveParticle4 15s linear infinite;
+}
+
+.particle:nth-child(5) {
+    top: 30%;
+    left: 70%;
+    animation: moveParticle5 11s linear infinite;
+}
+
+.particle:nth-child(6) {
+    top: 70%;
+    left: 30%;
+    animation: moveParticle6 9s linear infinite;
+}
+
+.particle:nth-child(7) {
+    top: 50%;
+    left: 50%;
+    animation: moveParticle7 14s linear infinite;
+}
+
+.particle:nth-child(8) {
+    top: 15%;
+    left: 85%;
+    animation: moveParticle8 13s linear infinite;
+}
+
+.particle:nth-child(9) {
+    top: 90%;
+    left: 90%;
+    animation: moveParticle9 16s linear infinite;
+}
+
+.particle:nth-child(10) {
+    top: 10%;
+    left: 45%;
+    animation: moveParticle10 10s linear infinite;
+}
+
+.particle:nth-child(11) {
+    top: 55%;
+    left: 15%;
+    animation: moveParticle11 12s linear infinite;
+}
+
+.particle:nth-child(12) {
+    top: 25%;
+    left: 95%;
+    animation: moveParticle12 11s linear infinite;
+}
+
+.particle:nth-child(13) {
+    top: 85%;
+    left: 25%;
+    animation: moveParticle13 13s linear infinite;
+}
+
+.particle:nth-child(14) {
+    top: 35%;
+    left: 65%;
+    animation: moveParticle14 9s linear infinite;
+}
+
+.particle:nth-child(15) {
+    top: 75%;
+    left: 75%;
+    animation: moveParticle15 14s linear infinite;
+}
+
+.particle:nth-child(16) {
+    top: 45%;
+    left: 35%;
+    animation: moveParticle16 15s linear infinite;
+}
+
+.particle:nth-child(17) {
+    top: 95%;
+    left: 55%;
+    animation: moveParticle17 10s linear infinite;
+}
+
+.particle:nth-child(18) {
+    top: 5%;
+    left: 85%;
+    animation: moveParticle18 12s linear infinite;
+}
+
+.particle:nth-child(19) {
+    top: 65%;
+    left: 5%;
+    animation: moveParticle19 11s linear infinite;
+}
+
+.particle:nth-child(20) {
+    top: 15%;
+    left: 45%;
+    animation: moveParticle20 13s linear infinite;
+}
+
+@keyframes moveParticle1 { 
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(100px, 100px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes moveParticle2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-150px, 50px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes moveParticle3 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(80px, -80px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes moveParticle4 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-120px, -60px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes moveParticle5 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(70px, 130px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Tambahkan keyframes untuk particle lainnya dengan pola yang sama tapi arah berbeda */
+
+/* Efek blur pada particle saat hover */
+.particle:hover {
+    transform: scale(2);
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .particle {
+        width: 3px;
+        height: 3px;
+    }
+}
+
+/* Make content appear above the animated background */
+.navbar, section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Adjust card backgrounds to be more transparent */
+.card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
